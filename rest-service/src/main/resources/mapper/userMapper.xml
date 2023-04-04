@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.restservice.user.UserMapper">
+
+    <!--  User  -->
+    <select id="findAllUsers" resultType="User">
+        select * from users1
+    </select>
+
+    <select id="findUser" resultType="User" parameterType="int">
+        select *
+        from users1
+        where id = #{id}
+    </select>
+
+    <insert id="createUser" parameterType="User">
+        insert into users1 values (user_seq.nextval, #{name}, sysdate, #{password}, #{ssn})
+    </insert>
+    
+    <delete id="deleteUser" parameterType="int">
+        delete from users1 where id = #{id}
+    </delete>
+
+
+    <!--  Post  -->
+    <select id="retrieveAllPostByUser" resultType="Post">
+
+    </select>
+
+</mapper>
+
+
+
+
